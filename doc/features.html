@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<title>CSK Programming Language</title>
+</head>
+<body>
+</html><img src="./images/white-throated-needletail.jpg" width="1536" height="1024" border="0" alt="" />
+<p>Symbol: Fivespot - Nemophila-maculata</p>
+<ul>
+<li>Reliability.</li>
+<li>Portability.</li>
+<li>Speed of Execution.</li>
+<li>Speed of Development.</li>
+<li>Well Documented.</li>
+</ul>
+<h1>Features.</h1>
+<ul>
+<li>Syntatic delegation.</li>
+<li>Easy but flexible transparent persistence. </li>
+<li>Object query language. </li>
+<li>All objects with default to_json and to_xml methods implementations.</li>
+<li>Factory provided by language allowing to new instantiation, singleton, pool and mockups.</li>
+<li>Interface implemented just by implementing the methods, no need to declare a class implements it. The compiler should know.</li>
+<li>No need to make files, just point to the main module and search folders and all dependencies are calculated and searched for in the current and children folders by default and on the list of search folders provided.</li>
+<li>Global code insertion with flexible description language.</li>
+<li>Logging ready, easy and configurable.</li>
+<li>Internationalization ready and easy. Strings are internationalized by default. Use directive i18_off{} to disable it for the enclosed code. </li>
+<li>Class attributes are read and write by default. Implement Get and Set if any special processing is needed. Use r to specify read only, w for write only, rw (default) for read/write attributes.</li>
+<li>Every object descends from Object class.</li>
+<li>As of date logic ready to use.</li>
+<li>Context sensitive inteligent compiler.</li>
+<li>Auto generated Metadata, Mockup and Test classes.</li>
+<li>uses separate from inherit. Mixins -> use. Derived classes -> inherit.</li>
+<li>Operator overloading.</li>
+<li>Deterministic controllable garbage collector with subscribable events (BeforeDestroy, AfterDestroy).
+<li>Initialization code has a user defined order of execution.
+<li>All variables are initialized to their default value.
+<li>Variables default values can be defined on declaration.
+<li>For every class C MyClass two interfaces are declared: IMyClassR (R means Read Only) and IMyClass (inherits from IMyClassR).
+<li>All variables can have read and write code associated with it (like in Delphi properties). Text editor should change font properties to indicate when a 
+    variable has associated read, write and read/write associated code.
+<li>All variables can have static initialization (static init: runs once per execution), thread initialization (thread init once per thread) and instantiation initialization (init: first thing to run just before constructors code).
+</ul>
+</body>
+

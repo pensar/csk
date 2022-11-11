@@ -1,0 +1,141 @@
+Persistance
+{
+  Firebird
+  {
+	Server   = server-name | ip-address
+	Database = db-alias | connection string
+  }
+}
+
+// Editor writes automatically add, remove, find, insert and get methods for container classes and container members.
+C AsOfDate<C0 ...> // User does not need to write this, is part of DateUtil namespace.
+{
+	ReversibleHashMap<<Range<Date>, [C0Value ...]> as RangeMap periods
+	add  (Range<Date> range, [C0Value ...])
+	find (Query) RangeMap
+	get 
+}
+
+C PersonName
+{
+	first-name
+	middle-name // default variable or member type is String. Default is rw (Read and Write).
+	last-name
+	S name { firstname + (middle_name ? ' ' + middle_name : (last_name ? ' ' + last_name)))} // function name which returns a String;																						 // Last statement defines return value. result can be used too.
+}
+
+C OrgUnitName
+{
+  legal-name
+  fantasy-name
+  List<S> aliases
+  description
+}
+
+E ContactInfoQualifier {ciHome, ciWork, ciOther}
+
+E AddressType {atStreet, atAvenue, atSquare, atRoad, atLane, atAlley, atBoulevar, atOther}
+
+// ini (or ini0) => first initialization code. All variables declared here are global.
+ini
+{
+	I a_global_int
+	a_global_string
+}
+
+ini 1 // This code will be executed just after ini 0 = ini .
+{
+}
+
+// ep means entry point = main in C language. 
+ep
+{
+						// i is implicitly declared in the loop context.
+	10					// Executes 10 times with i 0 to 9. Equivalent to for (int i = 0; i < 9; i++) in C++.
+	{
+	  print (i)
+	}
+	
+	[1..10] 		{print i} 	// Executes 10 times with i = 1 to 10.
+	[1..10[		 	{print i} 	// Executes  9 times with i = 1 to  9.
+	]1..10[ 		{print i} 	// Executes  8 times with i = 2 to  9.
+	[2.. 9] 		{print i}	// Same as ]1..10[.
+	10     (i += 2) {print i}	// Executes 10 times with i = 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20.
+	[0..9] (i += 2)	{print i}	// Executes 5 times with i = 0, 2, 4, 6, 8.
+	i = 10
+	1 {print i; print ::i}		// prints 0 10. Use ::i to access i on the parent scope.
+	
+	List l = {1, 2, 3, 4, 5}
+					// e stands for element and is implicitly defined. i (index) is also implicitly defined.
+	l {print e	 }	// prints 1 2 3 4 5
+	l {print l[i]}	// same as above.
+}
+
+C Address
+{ 
+	AddressType address_type default atStreet
+	street-number
+	apartment-number o // o => optional m=> mandatory. Mandatory is the default value for this modifier.
+	zip-code
+	borrow
+	city
+	state
+	country
+}
+	
+C ContactInfo
+{
+	Address     address
+	PhoneNumber phone_number
+	Email       email 			m // m => mandatory. o => optional. Default = o.
+	URL         website 
+	Instagram	instagram
+	Twitter		twitter
+}
+ContactInfoQualifier -* ContactInfo u AsOfDate ContactList; // Or manually: HashMap<ContactInfoQualifier, ContactInfo> as ContactList;
+
+C OrgUnit 
+{
+	OrgUnitName name as-of-date
+	OrgUnit     parent
+	List<S> as-of-date aliases
+	description
+}
+
+C Role 
+{
+	name
+	description
+}	
+
+C JobRole i Role
+{
+	Currency as-of-date salary
+}
+
+C Person
+{
+	PersonName legal-name
+	PersonName social-name
+	name        u social-name ? social-name.name        : legal-name.name
+	middle-name u social-name ? social-name.middle-name : legal-name.middle-name
+	last-name   u social-name ? social-name.last-name   : legal-name.last-name
+}
+
+Role *-* Company JobRole as-of-date
+
+E AssociationType = {atEmployee, atTrainee, atApprentice, atMinorApprentice, atThirdParty}
+C Associate u Person
+{
+	I                          associate-company-id
+	JobRole         as-of-date job-role
+	AssociationType as-of-date association-type
+}
+
+C Company i OrganizationUnit
+{
+  I    company-id
+  CNPJ federal-tax-id
+}
+
+

@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1662724043 source:c:\mg\prj\csk\main.cpp
+	<iostream>
+	"../cpplib/src/io_util.hpp"
+
+1662724461 c:\mg\prj\cpplib\src\io_util.hpp
+	<string>
+	<io.h>
+
+1662724561 source:c:\mg\prj\cpplib\src\io_util.cpp
+	"stdafx.h"
+	"mg.h"
+	<windows.h>
+	"io_util.hpp"
+	<sstream>
+	<ctime>
+	<sys/stat.h>
+	<algorithm>
+	<iostream>
+	<fcntl.h>
+	<unistd.h>
+	<cstring>
+	<fstream>
+	<string>
+
+1662671567 c:\mg\prj\cpplib\src\mg.h
+
+1662835966 source:c:\mg\prj\csk\src\main.cpp
+	<iostream>
+	"io_util.hpp"
+

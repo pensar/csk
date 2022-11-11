@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poiret+One:b|Scope+One:b">
+		<link rel="stylesheet" href="css/main.css">
+		<title>CSK keywords.</title>
+	</head>
+	<body>
+		<div id="top"></div>
+		<div id="main">
+			<h1>CSK keywords.</h1>
+			<hr></hr>
+			<p>Note: In alternatives the <span class="default">bold and blue</span> one indicates default value.</p>
+			<h2>C - Class</h2>
+			^[ \t]*C[ \t]+([a-zA-z0-9]{1,255})[ \t]*([ \t]+((private|inheritance|<span class="default">public</span>)[ \t]+)*((u|i)[ \t]+([a-zA-z0-9]{1,255}))*)*$<br/>
+			<br/>
+			<p>Examples:</p>
+			<code class="csk">
+				<div>
+					<span class="class">C</span> <span class="class_identifier">Vehicle</span> <br/>
+					<span class="curly_braces">{</span><br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;<span class="integer">I</span> <span class="integer_identifier">maker_id</span><br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">S</span> <span class="string_identifier">model</span><br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;<span class="color">Color</span> <span class="color_identifier">vcolor</span><br/>
+					<span class="curly_braces">}</span><br/>
+					<span class="class">C</span> <span class="class_identifier">Car</span> <span class="inherits">i</span> <span class="class_identifier">Vehicle</span><br/>
+					<span class="curly_braces">{</span><br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;<span class="integer">I</span> <span class="integer_identifier">passenger_doors_count</span><br/>
+					<span class="curly_braces">}</span><br/>
+				</div>
+			</code>
+			<h2>E - Enum</h2>
+			E &lt;enum_name&gt; <span class="curly_braces">{</span>&lt;enum_item0&gt;, &lt;enum_item1&gt;<span class="curly_braces">}</span><br/>
+			<p>Examples:</p>
+			<code class="CSK">
+				<div>
+					<span class="enum">E</span> <span class="class_identifier">ContactInfoQualifier</span> <span class="curly_braces">{</span>ciHome, ciWork, ciOther<span class="curly_braces">}</span><br/>
+				</div>
+			</code>
+			<h2>u - Uses</h2> 
+			<br/>
+			<p>Examples:</p>
+			<code class="csk">
+				<div>
+					<span class="class">C</span> <span class="class_identifier">Tax</span> <span class="uses">u</span> <span class="class_identifier">AsOfDate</span>
+				</div>
+			</code>
+		</div> 
+	</body>
+</html>

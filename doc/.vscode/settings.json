@@ -1,0 +1,10 @@
+{
+    "cmake.buildEnvironment": {
+        "out": "c:\\tmp\\out"
+    },
+    "cmake.environment": {
+        "out": "c:\\tmp\\out"
+    },
+    "C_Cpp.default.cppStandard": "gnu++20",
+    "C_Cpp.default.cStandard": "gnu17"
+}
