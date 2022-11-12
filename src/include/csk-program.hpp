@@ -2,56 +2,71 @@
 #define CSKPROGRAM_HPP
 
 #include "object.hpp"
+#include "name.hpp"
 #include <list>
+#include <string>
 
 namespace pensar_digital
 {
     namespace csk
     {
-        class CSKObject: Object
+        using namespace cpplib;
+
+        class RO_Type: public virtual RO_Name
+        {
+
+        };
+        class Type: public RO_Type
         {
             public:
-                std::string get_name (                         ) const {return name; };
-                void        set_name (const std::string&  aname)       {name = aname;};
+                Type () {};
+                Type (const Type& t) {assign (t);}
 
-            private:
-                std::string name;
-        }
+                virtual Type& assign (const Type& t) {Object::assign (t); Name::assign (t); return *this;};
 
-        class Type: CSKObject
+                Type& operator = (const Type& t) {return assign(t);}
+        };
+
+        class Class: Type
         {
+            Class () {};
+            Class (const Class& o): Type(o) {};
+        };
 
-        }
-
-        class Parameter: Object
+        class Parameter: Type
         {
             public:
                 Parameter() {};
-                Parameter(Type atype; std::string aname): type(atype), name(aname) {};
+                //Parameter(const Type& atype; std::string aname): type(atype), name(aname) {};
+                Parameter(const Parameter& p) {assign (p);};
+
+                virtual Parameter& assign (const Parameter& p) {type = p.type; name = p.name; return *this;};
+
+                Parameter& operator = (const Parameter& p) {return assign (p);};
             private:
                 Type type;
                 std::string name;
-        }
+        };
 
-        class Parameters
-        {
-            private:
-                std::list<Parameter> params;
-        }
+        typedef std::list<Parameter> ParametersList;
 
-        class Method
+        class Method: Object
         {
             Method () {};
-            Method (Type: areturn_type, std::string aname, Parameters: aparams): return_type (areturn_type), name(aname), params(aparams) {};
+            //Method (Type: areturn_type, std::string aname, Parameters: aparams): return_type (areturn_type), name(aname), params(aparams) {};
+            Method (const Method& m) {Object::assign (m); assign (m);};
+
+            virtual Method& assign (const Method& m) {Object::assign(m); }
             private:
                 Type return_type;
                 std::string name;
-                Parameters: params;
-        }
+                ParametersList params;
+        };
 
-        class CSKProgram : public Object
+        typedef std::list<Method> MethodsList;
+
+        class CSKProgram: Object
         {
-            using Methods = std::list<Method>;
             public:
                 /** Default constructor */
                 CSKProgram(): private_methods(), protected_methods(), public_methods() {};
@@ -73,9 +88,9 @@ namespace pensar_digital
             protected:
 
             private:
-                Methods private_mthods;
-                Methods protected_methods;
-                Methods public_methods;
+                MethodsList private_methods;
+                MethodsList protected_methods;
+                MethodsList public_methods;
         };
     }
 }

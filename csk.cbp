@@ -39,8 +39,9 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="../cpplib/src/include/io_util.hpp" />
-		<Unit filename="../cpplib/src/include/iro_object.hpp" />
+		<Unit filename="../cpplib/src/include/name.hpp" />
 		<Unit filename="../cpplib/src/include/object.hpp" />
+		<Unit filename="../cpplib/src/include/ro_object.hpp" />
 		<Unit filename="../cpplib/src/io_util.cpp" />
 		<Unit filename="src/csk-program.cpp" />
 		<Unit filename="src/include/csk-program.hpp" />
