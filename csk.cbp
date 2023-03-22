@@ -2,32 +2,28 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="csk" />
+		<Option title="The compiler should know." />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
-			<Target title="Debug">
-				<Option output="c:/tmp/csk/bin/Debug/csk" prefix_auto="1" extension_auto="1" />
-				<Option object_output="c:/tmp/csk/obj/Debug/" />
+			<Target title="debug">
+				<Option output="#out/debug/bin/csk" prefix_auto="1" extension_auto="1" />
+				<Option object_output="#out/debug/obj/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
-					<Add directory="cpplib/src/include" />
-					<Add directory="include" />
-					<Add directory="csk/src/include" />
+					<Add directory="../cpplib" />
+					<Add directory="C:/mg/prj/csk/" />
 				</Compiler>
 			</Target>
-			<Target title="Release">
-				<Option output="c:/tmp/csk/bin/Release/csk" prefix_auto="1" extension_auto="1" />
-				<Option object_output="c:/tmp/csk/obj/Release/" />
+			<Target title="release">
+				<Option output="#out/release/bin/csk" prefix_auto="1" extension_auto="1" />
+				<Option object_output="#out/release/obj/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
-					<Add directory="cpplib/src/include" />
-					<Add directory="include" />
-					<Add directory="csk/src/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -38,15 +34,15 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="../cpplib/src/include/io_util.hpp" />
-		<Unit filename="../cpplib/src/include/name.hpp" />
-		<Unit filename="../cpplib/src/include/object.hpp" />
-		<Unit filename="../cpplib/src/include/ro_object.hpp" />
-		<Unit filename="../cpplib/src/io_util.cpp" />
-		<Unit filename="src/csk-program.cpp" />
-		<Unit filename="src/include/csk-program.hpp" />
-		<Unit filename="src/include/token.hpp" />
-		<Unit filename="src/main.cpp" />
+		<Unit filename="../cpplib/constants.cpp" />
+		<Unit filename="../cpplib/constants.hpp" />
+		<Unit filename="../cpplib/io_util.cpp" />
+		<Unit filename="../cpplib/io_util.hpp" />
+		<Unit filename="../cpplib/object.hpp" />
+		<Unit filename="csk-program.cpp" />
+		<Unit filename="csk-program.hpp" />
+		<Unit filename="main.cpp" />
+		<Unit filename="token.hpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
