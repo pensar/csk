@@ -13,10 +13,11 @@
 	<fstream>
 	<string>
 
-1679408509 c:\mg\prj\cpplib\io_util.hpp
+1679659695 c:\mg\prj\cpplib\io_util.hpp
 	"object.hpp"
 	<string>
-	<filesystem>
+	<experimental/filesystem>
+	<io.h>
 
 1678375273 source:c:\mg\prj\csk2\csk\main.cpp
 	<iostream>
@@ -30,7 +31,7 @@
 	"constants.hpp"
 	<iostream>
 
-1679503608 c:\mg\prj\cpplib\constants.hpp
+1679652393 c:\mg\prj\cpplib\constants.hpp
 	<cstdint>
 
 1674755329 source:c:\mg\prj\csk\csk-program.cpp

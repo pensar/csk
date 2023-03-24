@@ -13,7 +13,7 @@ C AsOfDate<C0 ...> // User does not need to write this, is part of DateUtil name
 	ReversibleHashMap<<Range<Date>, [C0Value ...]> as RangeMap periods
 	add  (Range<Date> range, [C0Value ...])
 	find (Query) RangeMap
-	get 
+	get
 }
 
 C PersonName
@@ -36,7 +36,7 @@ E ContactInfoQualifier {ciHome, ciWork, ciOther}
 
 E AddressType {atStreet, atAvenue, atSquare, atRoad, atLane, atAlley, atBoulevar, atOther}
 
-// ini (or ini0) => first initialization code. All variables declared here are global.
+// ini (or ini 0) => first initialization code. All variables declared here are global.
 ini
 {
 	I a_global_int
@@ -47,7 +47,7 @@ ini 1 // This code will be executed just after ini 0 = ini .
 {
 }
 
-// ep means entry point = main in C language. 
+// ep means entry point = main in C language.
 ep
 {
 						// i is implicitly declared in the loop context.
@@ -55,7 +55,7 @@ ep
 	{
 	  print (i)
 	}
-	
+
 	[1..10] 		{print i} 	// Executes 10 times with i = 1 to 10.
 	[1..10[		 	{print i} 	// Executes  9 times with i = 1 to  9.
 	]1..10[ 		{print i} 	// Executes  8 times with i = 2 to  9.
@@ -64,7 +64,7 @@ ep
 	[0..9] (i += 2)	{print i}	// Executes 5 times with i = 0, 2, 4, 6, 8.
 	i = 10
 	1 {print i; print ::i}		// prints 0 10. Use ::i to access i on the parent scope.
-	
+
 	List l = {1, 2, 3, 4, 5}
 					// e stands for element and is implicitly defined. i (index) is also implicitly defined.
 	l {print e	 }	// prints 1 2 3 4 5
@@ -72,7 +72,7 @@ ep
 }
 
 C Address
-{ 
+{
 	AddressType address_type default atStreet
 	street-number
 	apartment-number o // o => optional m=> mandatory. Mandatory is the default value for this modifier.
@@ -82,19 +82,19 @@ C Address
 	state
 	country
 }
-	
+
 C ContactInfo
 {
 	Address     address
 	PhoneNumber phone_number
 	Email       email 			m // m => mandatory. o => optional. Default = o.
-	URL         website 
+	URL         website
 	Instagram	instagram
 	Twitter		twitter
 }
 ContactInfoQualifier -* ContactInfo u AsOfDate ContactList; // Or manually: HashMap<ContactInfoQualifier, ContactInfo> as ContactList;
 
-C OrgUnit 
+C OrgUnit
 {
 	OrgUnitName name as-of-date
 	OrgUnit     parent
@@ -102,11 +102,11 @@ C OrgUnit
 	description
 }
 
-C Role 
+C Role
 {
 	name
 	description
-}	
+}
 
 C JobRole i Role
 {

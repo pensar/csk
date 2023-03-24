@@ -2,7 +2,7 @@ html
 {
 	background-color: #666666; /* margins background color */
 }
-
+.tab {tab-size: 4;}
 body
 {
 	/*background-color: #333333;*/
