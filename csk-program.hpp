@@ -1,3 +1,6 @@
+// author : Mauricio Gomes
+// license: MIT (https://opensource.org/licenses/MIT)
+
 #ifndef CSKPROGRAM_HPP
 #define CSKPROGRAM_HPP
 

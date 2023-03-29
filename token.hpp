@@ -1,3 +1,6 @@
+// author : Mauricio Gomes
+// license: MIT (https://opensource.org/licenses/MIT)
+
 #ifndef TOKEN_HPP
 #define TOKEN_HPP
 
