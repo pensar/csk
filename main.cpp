@@ -31,6 +31,5 @@ int main()
     namespace pd = pensar_digital;
 
     pensar_digital::cpplib::read_file ("c:\\mg\\prj\\csk\\doc\\csk_syntax_examples.csk", pd::csk::line_handler);
-    std::cout << 1;
     return 0;
 }

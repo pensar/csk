@@ -1,6 +1,5 @@
 # depslib dependency file v1.0
-1678381737 source:c:\mg\prj\cpplib\io_util.cpp
-	"stdafx.h"
+1679927340 source:c:\mg\prj\cpplib\io_util.cpp
 	<windows.h>
 	"io_util.hpp"
 	<sstream>
@@ -13,9 +12,10 @@
 	<fstream>
 	<string>
 
-1679659695 c:\mg\prj\cpplib\io_util.hpp
+1679924142 c:\mg\prj\cpplib\io_util.hpp
 	"object.hpp"
 	<string>
+	<filesystem>
 	<experimental/filesystem>
 	<io.h>
 
@@ -27,11 +27,11 @@
 	<iostream>
 	"io_util.hpp"
 
-1679500103 c:\mg\prj\cpplib\object.hpp
+1679759819 c:\mg\prj\cpplib\object.hpp
 	"constants.hpp"
 	<iostream>
 
-1679652393 c:\mg\prj\cpplib\constants.hpp
+1679922275 c:\mg\prj\cpplib\constants.hpp
 	<cstdint>
 
 1674755329 source:c:\mg\prj\csk\csk-program.cpp
@@ -50,7 +50,6 @@
 1676061621 c:\mg\prj\cpplib\string_def.hpp
 	<string>
 
-1679503574 source:c:\mg\prj\cpplib\constants.cpp
-	"stdafx.h"
+1679928124 source:c:\mg\prj\cpplib\constants.cpp
 	"constants.hpp"
 
