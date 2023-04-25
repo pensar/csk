@@ -4,8 +4,8 @@
 #ifndef CSKPROGRAM_HPP
 #define CSKPROGRAM_HPP
 
-#include "name.hpp"
-#include "string_def.hpp"
+#include "../cpplib/name.hpp"
+#include "../cpplib/string_def.hpp"
 #include <list>
 #include <string>
 
