@@ -18,8 +18,7 @@ namespace pensar_digital
         class Type: public Name
         {
             public:
-                const static Version VERSION           = 1;
-                const static Version INTERFACE_VERSION = 1;
+                inline static const structVersion VERSION = structVersion(1, 1, 1);
                 Type (const String& aname = ""): Name (aname) {};
                 static Type NULL_TYPE;
                 Type (const Type& t): Name (t) {}
@@ -34,28 +33,28 @@ namespace pensar_digital
                 Type& operator = (const Type& t) {return assign(t);}
 
             protected:
-                virtual std::istream& ReadFromStream (std::istream& is, const Version v)
+                virtual std::istream& read (std::istream& is)
                 {
-                    Name::ReadFromStream (is, Name::VERSION);
-                    switch (v)
+                    Name::read (is);
+                    switch (VERSION.PUBLIC)
                     {
                         case 1:;
                     };
                     return is;
                 };
 
-                virtual std::ostream& WriteToStream (std::ostream& os, const Version v) const
+                virtual std::ostream& write(std::ostream& os) const
                 {
-                    Name::WriteToStream (os, Name::VERSION);
-                    switch (v)
+                    Name::write(os);
+                    switch (VERSION.PUBLIC)
                     {
                         case 1:;
                     };
                     return os;
                 };
             public:
-                std::istream& operator >> (std::istream& is)       { return ReadFromStream (is, Type::VERSION);};
-                std::ostream& operator << (std::ostream& os) const { return WriteToStream  (os, Type::VERSION);};
+                std::istream& operator >> (std::istream& is)       { return read  (is);};
+                std::ostream& operator << (std::ostream& os) const { return write (os);};
          };
 
         csk::Type Type::NULL_TYPE = Type ();
@@ -63,9 +62,7 @@ namespace pensar_digital
         class Class: Type
         {
             public:
-
-                const static Version VERSION           = 1;
-                const static Version INTERFACE_VERSION = 1;
+                inline static const structVersion VERSION = structVersion(1, 1, 1);
                 Class () {};
                 Class (const Class& o): Type(o) {};
 
@@ -74,20 +71,20 @@ namespace pensar_digital
                 Class& operator = (const Class& c) {return assign(c);}
 
             protected:
-                virtual std::istream& ReadFromStream (std::istream& is, const Version v)
+                virtual std::istream& read (std::istream& is)
                 {
-                    Type::ReadFromStream (is, Type::VERSION);
-                    switch (v)
+                    Type::read (is);
+                    switch (VERSION.PUBLIC)
                     {
                         case 1:;
                     };
                     return is;
                 };
 
-                virtual std::ostream& WriteToStream (std::ostream& os, const Version v) const
+                virtual std::ostream& write (std::ostream& os) const
                 {
-                    Type::WriteToStream (os, Type::VERSION);
-                    switch (v)
+                    Type::write(os);
+                    switch (VERSION.PUBLIC)
                     {
                         case 1:;
                     };
@@ -95,8 +92,8 @@ namespace pensar_digital
                 };
 
             public:
-                std::istream& operator >> (std::istream& is)       { return ReadFromStream (is, Class::VERSION);};
-                std::ostream& operator << (std::ostream& os) const { return WriteToStream  (os, Class::VERSION);};
+                std::istream& operator >> (std::istream& is)       { return read  (is);};
+                std::ostream& operator << (std::ostream& os) const { return write (os);};
         };
         //extern std::istream& operator
         class Parameter: Object
@@ -109,34 +106,34 @@ namespace pensar_digital
 
                 Parameter& operator = (const Parameter& p) {return assign (p);};
             protected:
-                virtual std::istream& ReadFromStream (std::istream& is, const Version v)
+                virtual std::istream& read (std::istream& is)
                 {
-                    Object::ReadFromStream (is, Object::VERSION);
-                    switch (v)
+                    Object::read (is);
+                    switch (VERSION.PUBLIC)
                     {
-                        case 1:
+                        default:
                             type.operator >> (is);
-                            name.operator >> (is);
+                            is >> name;
                     };
                     return is;
                 };
 
-                virtual std::ostream& WriteToStream (std::ostream& os, const Version v) const
+                virtual std::ostream& write (std::ostream& os) const
                 {
-                    Object::WriteToStream (os, Object::VERSION);
+                    Object::write (os);
 
-                    switch (v)
+                    switch (VERSION.PUBLIC)
                     {
                         case 1:
-                            name.operator << (os);
+                            os << name;
                             type.operator << (os);
                     };
                     return os;
                 };
 
             public:
-                std::istream& operator >> (std::istream& is)       { return ReadFromStream (is, Parameter::VERSION);};
-                std::ostream& operator << (std::ostream& os) const { return WriteToStream  (os, Parameter::VERSION);};
+                std::istream& operator >> (std::istream& is)       { return read  (is);};
+                std::ostream& operator << (std::ostream& os) const { return write (os);};
             private:
                 Type type;
                 Name name;

@@ -71,9 +71,11 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>c:\tmp\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>c:\tmp\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>c:\tmp\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>c:\tmp\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -109,22 +111,33 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>C:\mg\prj\cpplib\header_lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>C:\mg\prj\cpplib\header_lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\cpplib\constants.cpp" />
+    <ClCompile Include="..\cpplib\cpp_lib\xmlParser.cpp" />
     <ClCompile Include="..\cpplib\io_util.cpp" />
+    <ClCompile Include="..\cpplib\name.cpp" />
+    <ClCompile Include="..\cpplib\object.cpp" />
     <ClCompile Include="csk-program.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\cpplib\constants.hpp" />
+    <ClInclude Include="..\cpplib\header_lib\json.hpp" />
+    <ClInclude Include="..\cpplib\header_lib\xmlParser.h" />
     <ClInclude Include="..\cpplib\io_util.hpp" />
+    <ClInclude Include="..\cpplib\name.hpp" />
+    <ClInclude Include="..\cpplib\object.hpp" />
     <ClInclude Include="csk-program.hpp" />
     <ClInclude Include="token.hpp" />
   </ItemGroup>
