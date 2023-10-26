@@ -126,8 +126,11 @@
     <ClCompile Include="..\cpplib\constants.cpp" />
     <ClCompile Include="..\cpplib\cpp_lib\xmlParser.cpp" />
     <ClCompile Include="..\cpplib\io_util.cpp" />
+    <ClCompile Include="..\cpplib\memory.cpp" />
     <ClCompile Include="..\cpplib\name.cpp" />
     <ClCompile Include="..\cpplib\object.cpp" />
+    <ClCompile Include="..\cpplib\string_util.cpp" />
+    <ClCompile Include="..\cpplib\version.cpp" />
     <ClCompile Include="csk-program.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -136,8 +139,10 @@
     <ClInclude Include="..\cpplib\header_lib\json.hpp" />
     <ClInclude Include="..\cpplib\header_lib\xmlParser.h" />
     <ClInclude Include="..\cpplib\io_util.hpp" />
+    <ClInclude Include="..\cpplib\memory.hpp" />
     <ClInclude Include="..\cpplib\name.hpp" />
     <ClInclude Include="..\cpplib\object.hpp" />
+    <ClInclude Include="..\cpplib\version.hpp" />
     <ClInclude Include="csk-program.hpp" />
     <ClInclude Include="token.hpp" />
   </ItemGroup>

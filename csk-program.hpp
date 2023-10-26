@@ -18,7 +18,7 @@ namespace pensar_digital
         class Type: public Name
         {
             public:
-                inline static const structVersion VERSION = structVersion(1, 1, 1);
+                inline static const VersionPtr VERSION = pd::Version::get (1, 1, 1);
                 Type (const String& aname = ""): Name (aname) {};
                 static Type NULL_TYPE;
                 Type (const Type& t): Name (t) {}
@@ -36,17 +36,17 @@ namespace pensar_digital
                 virtual std::istream& read (std::istream& is)
                 {
                     Name::read (is);
-                    switch (VERSION.PUBLIC)
+                    switch (VERSION->get_public ())
                     {
                         case 1:;
                     };
                     return is;
                 };
 
-                virtual std::ostream& write(std::ostream& os) const
+                virtual std::ostream& write (std::ostream& os, const IO_Mode& amode = TEXT, const std::endian& byte_order = std::endian::native) const
                 {
                     Name::write(os);
-                    switch (VERSION.PUBLIC)
+                    switch (VERSION->get_public())
                     {
                         case 1:;
                     };
@@ -62,7 +62,7 @@ namespace pensar_digital
         class Class: Type
         {
             public:
-                inline static const structVersion VERSION = structVersion(1, 1, 1);
+                inline static const VersionPtr VERSION = pd::Version::get (1, 1, 1);
                 Class () {};
                 Class (const Class& o): Type(o) {};
 
@@ -74,7 +74,7 @@ namespace pensar_digital
                 virtual std::istream& read (std::istream& is)
                 {
                     Type::read (is);
-                    switch (VERSION.PUBLIC)
+                    switch (VERSION->get_public())
                     {
                         case 1:;
                     };
@@ -84,7 +84,7 @@ namespace pensar_digital
                 virtual std::ostream& write (std::ostream& os) const
                 {
                     Type::write(os);
-                    switch (VERSION.PUBLIC)
+                    switch (VERSION->get_public())
                     {
                         case 1:;
                     };
@@ -109,7 +109,7 @@ namespace pensar_digital
                 virtual std::istream& read (std::istream& is)
                 {
                     Object::read (is);
-                    switch (VERSION.PUBLIC)
+                    switch (VERSION->get_public())
                     {
                         default:
                             type.operator >> (is);
@@ -122,7 +122,7 @@ namespace pensar_digital
                 {
                     Object::write (os);
 
-                    switch (VERSION.PUBLIC)
+                    switch (VERSION->get_public())
                     {
                         case 1:
                             os << name;

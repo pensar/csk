@@ -16,7 +16,7 @@ class Token : public Name
         /** Default destructor */
         virtual ~Token() {}
 
-        Token& assign (const Token& o) {set_id (o.get_id ()); set_name (o.get_name ());}
+        Token& assign (const Token& o) {set_id (o.id ()); set_name (o.get_name ());}
 
         /** Copy constructor
          *  \param other Object to copy from
