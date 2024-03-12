@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "../cpplib/io_util.hpp"
+#include "../cpplib/s.hpp"
 // author : Mauricio Gomes
 // license: MIT (https://opensource.org/licenses/MIT)
 
@@ -12,14 +13,14 @@ namespace pensar_digital
     namespace csk
     {
         using namespace std;
+        using namespace pensar_digital::cpplib;
 
-
-        void line_handler (const int64_t line_number, const string& line)
+        void line_handler (const int64_t line_number, const S& line)
         {
-            for(string::size_type i=0; i < line.length(); i++)
+            for(S::size_type i=0; i < line.length(); i++)
             {
-                string::value_type ch = line[i];
-                if (ch != '\n')
+                S::value_type ch = line[i];
+                if (ch != W('\n'))
                 {
 
                 }

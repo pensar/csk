@@ -4,8 +4,9 @@
 #ifndef CSKPROGRAM_HPP
 #define CSKPROGRAM_HPP
 
-#include "../cpplib/name.hpp"
-#include "../cpplib/string_def.hpp"
+#include "../cpplib/s.hpp"
+#include "../cpplib/object.hpp"
+
 #include <list>
 #include <string>
 
@@ -13,19 +14,25 @@ namespace pensar_digital
 {
     namespace csk
     {
-        using namespace cpplib;
+        using namespace pensar_digital::cpplib;
 
-        class Type: public Name
+        class Type: public Object
         {
+            private:
+                std::string name;
+
             public:
                 inline static const VersionPtr VERSION = pd::Version::get (1, 1, 1);
-                Type (const String& aname = ""): Name (aname) {};
+                Type (const S& aname = ""): name (aname) {};
                 static Type NULL_TYPE;
-                Type (const Type& t): Name (t) {}
+                Type (const Type& t): name (t) {}
+                const std::string& get_name() const { return name; }
+
+                void set_name(const std::string& sname) { name = sname; }
 
                 Type& assign (const Type& t)
                 {
-                    Name::assign (t.get_name());
+                    set_name (t.get_name());
                     Object::assign (t);
                     return *this;
                 }
@@ -35,7 +42,8 @@ namespace pensar_digital
             protected:
                 virtual std::istream& read (std::istream& is)
                 {
-                    Name::read (is);
+                    //Name::read (is);
+                    is >> name;
                     switch (VERSION->get_public ())
                     {
                         case 1:;
@@ -43,9 +51,10 @@ namespace pensar_digital
                     return is;
                 };
 
-                virtual std::ostream& write (std::ostream& os, const IO_Mode& amode = TEXT, const std::endian& byte_order = std::endian::native) const
+                virtual std::ostream& write (std::ostream& os, const std::endian& byte_order = std::endian::native) const
                 {
-                    Name::write(os);
+                    //Name::write(os);
+                    os << name;
                     switch (VERSION->get_public())
                     {
                         case 1:;
@@ -66,7 +75,7 @@ namespace pensar_digital
                 Class () {};
                 Class (const Class& o): Type(o) {};
 
-                Class& assign (const Class& c) {Name::assign (c.get_name()); Object::assign (c); return *this;};
+                Class& assign (const Class& c) {set_name (c.get_name()); Object::assign (c); return *this;};
 
                 Class& operator = (const Class& c) {return assign(c);}
 
@@ -136,7 +145,7 @@ namespace pensar_digital
                 std::ostream& operator << (std::ostream& os) const { return write (os);};
             private:
                 Type type;
-                Name name;
+                std::string name;
         };
 
         typedef std::list<Parameter> ParametersList;
