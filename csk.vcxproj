@@ -72,6 +72,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>c:\tmp\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>c:\tmp\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>C:\mg\prj\vcpkg\installed\x86-windows\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>c:\tmp\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
@@ -113,36 +114,27 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <AdditionalIncludeDirectories>C:\mg\prj\cpplib\header_lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>cpp.lib;ws2_32.lib;icudt.lib;icuin.lib;icuio.lib;icutu.lib;icuuc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\out\cpp\bin\x64\Debug;C:\vcpkg\installed\x64-windows\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <AdditionalIncludeDirectories>C:\mg\prj\cpplib\header_lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\cpplib\constants.cpp" />
-    <ClCompile Include="..\cpplib\cpp_lib\xmlParser.cpp" />
-    <ClCompile Include="..\cpplib\io_util.cpp" />
-    <ClCompile Include="..\cpplib\memory.cpp" />
-    <ClCompile Include="..\cpplib\name.cpp" />
-    <ClCompile Include="..\cpplib\object.cpp" />
-    <ClCompile Include="..\cpplib\string_util.cpp" />
-    <ClCompile Include="..\cpplib\version.cpp" />
     <ClCompile Include="csk-program.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\cpplib\constants.hpp" />
-    <ClInclude Include="..\cpplib\header_lib\json.hpp" />
-    <ClInclude Include="..\cpplib\header_lib\xmlParser.h" />
-    <ClInclude Include="..\cpplib\io_util.hpp" />
-    <ClInclude Include="..\cpplib\memory.hpp" />
-    <ClInclude Include="..\cpplib\name.hpp" />
-    <ClInclude Include="..\cpplib\object.hpp" />
-    <ClInclude Include="..\cpplib\version.hpp" />
     <ClInclude Include="csk-program.hpp" />
     <ClInclude Include="token.hpp" />
   </ItemGroup>
