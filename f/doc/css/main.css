@@ -1,0 +1,132 @@
+html
+{
+	background-color: #666666; /* margins background color */
+}
+
+body
+{
+	/*background-color: #333333;*/
+	font-family     : 'Poiret One'; 
+	font-size       : 20px;
+	color           : #dddddd;
+	margin-top      :  50px;
+	margin-left     : 100px;
+	margin-right    : 100px;
+	margin-bottom   :  50px;
+	padding         : 100 10 10 10;
+}
+
+#main
+{
+  box-sizing: border-box;
+  border-radius: 20px;
+  background: #333333;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  /*font-size: 14px;*/
+  /*color: #666666;*/
+}
+
+h1
+{
+	font-family: 'Poiret One'; 
+	font-size: 28px;
+	color: #ffffbb;
+}
+span.big 
+{
+	font-family: 'Scope One', serif;
+	font-size: 48px;
+	color: #b3f0ff;
+}
+
+span.default
+{
+	font-weight: bold;
+	color: #b3f0ff;
+}
+
+code.flora > div
+{
+  box-sizing: border-box;
+  border-radius: 20px;
+  background: #161f16;
+  padding: 20px;
+  width: 800px;
+  height: 100%;
+  font-size: 16px;
+  color: #777777;
+}
+
+code.flora span.class
+{
+	color: #F3F5B3;
+}
+
+code.flora span.class_identifier
+{
+	color: #FaFcBa;
+}
+
+code.flora span.inherits
+{
+	color: #f7c588;
+}
+
+code.flora span.uses
+{
+	color: #88f79c;
+}
+
+code.flora span.enum
+{
+	color: #efc4e0;
+}
+
+code.flora span.curly_braces
+{
+	color: #c0f7da;
+}
+
+code.flora span.integer
+{
+	color: #509ced;
+}
+
+code.flora span.integer_identifier
+{
+	color: #57a3f4;
+}
+
+code.flora span.string
+{
+	color: #e076db;
+}
+
+code.flora span.string_identifier
+{
+	color: #e78cfb;
+}
+
+code.flora span.color
+{
+	color: #aaefbf;
+}
+
+code.flora span.color_identifier
+{
+	color: #b2f6c6;
+}
+
+/*!
+font-family: 'Istok Web', sans-serif;
+font-family: 'Cantata One', serif;
+font-family: 'Gruppo', cursive;
+font-family: 'Prata', serif;
+font-family: 'Corben', cursive;
+font-family: 'Bellefair', serif;
+font-family: 'Tienne', serif;
+font-family: 'Scope One', serif;
+font-family: 'Sree Krushnadevaraya', serif;
+*/

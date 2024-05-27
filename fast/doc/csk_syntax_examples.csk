@@ -1,0 +1,73 @@
+Persistance
+{
+  Firebird.Server = server;
+  Firebird.Database = db_alias | connection string;
+}
+
+C AsOfDate<C0 ...> // User does not need to write this, is part of DateUtil namespace.
+{
+	ReversibleHashMap<<Range<Date>, [C0Value ...]> as RangeMap periods
+	add  (Range<Date> range, [C0Value ...])
+	find (Query) RangeMap
+	get 
+}
+
+// All CRUD methods for attributes created by compiler: find, add, remove, replace.
+C PersonName u
+{
+	first_name
+	middle_name // default variable or member type is String.
+	last_name
+	S name { firstname + (middle_name ? ' ' + middle_name : (last_name ? ' ' + last_name)))} // function name which returns a String;
+																							 // Last statement defines return value. result can be used too.
+}
+
+C OrgUnitName
+{
+  legal_name
+  fantasy_name
+  List<S> aliases
+  description
+}
+
+E ContactInfoQualifier {ciHome, ciWork, ciOther}
+
+E AddressType {atStreet, atAvenue, atSquare, atRoad, atLane, atAlley, atBoulevar, atOther}
+
+
+C Address
+{ 
+	AddressType address_type
+}
+	
+C ContactInfo
+{
+	Address     address
+	PhoneNumber phone_number
+	Email       email 			m // m => mandatory. o => optional. Default = o.
+	URL         website 
+	Instagram	instagram
+	Twitter		twitter
+}
+ContactInfoQualifier -* ContactInfo u AsOfDate ContactList; // Or manually: HashMap<ContactInfoQualifier, ContactInfo> as ContactList;
+
+C OrgUnit 
+{
+	OrgUnitName u AsOfDate name
+}
+
+C Company i OrganizationUnit
+{
+	List<S> aliases
+}
+
+C Role
+{
+	name
+	description
+}	
+
+C Person u PersonName;
+
+Role *-* Company u AsOfDate JobRole
+Person *-* JobRole

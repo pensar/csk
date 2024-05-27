@@ -1,0 +1,11 @@
+Flora keywords.
+
+Note: In alternatives the bold one indicates default value.
+C - Class
+^[ \t]*C[ \t]+([a-zA-z0-9]{1,255})[ \t]*([ \t]+((private|inheritance|public)[ \t]+)*((u|i)[ \t]+([a-zA-z0-9]{1,255}))*)*$
+
+Exemplos:
+C Mamal
+C Whale i Mamal //
+E - Enum
+E <enum_name> {<enum_item0> 
